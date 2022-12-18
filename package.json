@@ -1,0 +1,17 @@
+{
+  "name": "etch-dev-env",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve" "serve",
+    "build", "node builder.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.16.9",
+    "serve": "^14.1.2"
+  }
+}
