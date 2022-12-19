@@ -8,6 +8,7 @@ ctx.lineCap = 'round';
 ctx.lineWidth = 10;
 ctx.strokeStyle = '#000000'
 
+// drawing a point in our canvas
 ctx.beginPath();
 ctx.moveTo(200,200);
 ctx.lineTo(200,200);
