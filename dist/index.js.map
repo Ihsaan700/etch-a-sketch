@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.js"],
+  "sourcesContent": ["const canvas = document.querySelector(\"div.section_canvas\")\n"],
+  "mappings": "MAAA,IAAMA,EAAS,SAAS,cAAc,oBAAoB",
+  "names": ["canvas"]
+}

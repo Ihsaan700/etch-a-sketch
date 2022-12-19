@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve" "serve",
-    "build", "node builder.js"
+    "serve": "serve",
+    "build": "node builder.js"
   },
   "author": "",
   "license": "ISC",
