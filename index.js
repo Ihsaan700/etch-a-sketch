@@ -7,6 +7,7 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 10;
 ctx.strokeStyle = '#36454F';
+const MOVE_AMOUNT = 10
 
 // getting the width and height of the canvas to draw from random points
 const width = canvas.width;
@@ -22,10 +23,23 @@ ctx.moveTo(x, y);
 ctx.lineTo(x, y);
 ctx.stroke();
 
+// a draw function
+function draw(options) {
+	console.log(options.key);
+	// start path
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	// x and y depend on arrow key input
+	x -= MOVE_AMOUNT;
+	y -= MOVE_AMOUNT;
+	ctx.lineTo(x, y);
+	ctx.stroke()	
+}
+
 // a function to handle arrow keys input
 function handleKey(e) {
 	if (e.key.includes("Arrow")) {
-		console.log(e.key);
+		draw({key: e.key});
 		console.log("handle key");
 	}
 
