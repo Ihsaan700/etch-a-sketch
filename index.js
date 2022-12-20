@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 10;
-ctx.strokeStyle = '#000000'
+ctx.strokeStyle = '#36454F';
 
 // getting the width and height of the canvas to draw from random points
 const width = canvas.width;
@@ -22,3 +22,13 @@ ctx.moveTo(x, y);
 ctx.lineTo(x, y);
 ctx.stroke();
 
+// a function to handle arrow keys input
+function handleKey(e) {
+	if (e.key.includes("Arrow")) {
+		console.log(e.key);
+		console.log("handle key");
+	}
+
+};
+
+window.addEventListener("keyup", handleKey);
