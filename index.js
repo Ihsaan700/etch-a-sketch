@@ -5,11 +5,16 @@ const ctx = canvas.getContext('2d');
 // clear button
 const clearButton = document.querySelector("a.button-clear")
 
+// knob buttons
+const knob = document.querySelectorAll("div.knob")
+// const secondKnob = document.querySelector("div.knob_inner-right")
+
 // setting up our canvas for drawing
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 25;
-// accessing the color of the stroke
+
+// the color of the stroke
 let hue = 0;
 ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
@@ -18,8 +23,6 @@ const MOVE_AMOUNT = 10;
 // getting the width and height of the canvas to draw from random points
 const width = canvas.width;
 const height = canvas.height;
-
-// using math.random to choose random points to start drawing
 let x = Math.floor(Math.random() * width);
 let y = Math.floor(Math.random() * height);
 
@@ -29,7 +32,7 @@ ctx.moveTo(x, y);
 ctx.lineTo(x, y);
 ctx.stroke();
 
-// a draw function
+// draw function
 function draw(options) {
 	console.log(options.key);
 
@@ -65,7 +68,11 @@ function draw(options) {
 
 // clear the canvas
 function clearCanvas() {
-	ctx.clearRect(0, 0, width, height)
+	ctx.clearRect(0, 0, width, height);
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x, y);
+	ctx.stroke();
 }
 
 // a function to handle arrow keys input
@@ -74,6 +81,25 @@ function handleKey(e) {
 		draw({key: e.key});
 		console.log("handle key");
 		e.preventDefault()
+	}
+
+	// adding animation to the knobs according to arrow input
+	switch (e.key) {
+		case "ArrowLeft":
+			// specifics toggles classes are made in webflow
+			knob[0].classList.toggle("rotate-left");
+			break;
+		case "ArrowRight":
+			knob[0].classList.toggle("rotate-right");
+			break;
+		case "ArrowUp":
+			knob[1].classList.toggle("rotate-right");
+			break;
+		case "ArrowDown":
+			knob[1].classList.toggle("rotate-left");
+			break;
+		default:
+			break;
 	}
 };
 
